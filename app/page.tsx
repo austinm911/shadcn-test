@@ -21,7 +21,7 @@ export default function IndexPage() {
   ]
   return (
     <Dialog>
-      <DialogTrigger> 
+      <DialogTrigger asChild> 
         <Button>Open Dialog</Button>
       </DialogTrigger>
       <DialogContent>
