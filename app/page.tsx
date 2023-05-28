@@ -1,39 +1,44 @@
+/* eslint-disable tailwindcss/classnames-order */
 import Link from "next/link"
-
+import { Multiselect } from "@/components/ui/MultiselectHeadless"
 import { siteConfig } from "@/config/site"
-import { buttonVariants } from "@/components/ui/button"
+import {  Button, buttonVariants } from "@/components/ui/button"
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
+
 
 export default function IndexPage() {
+  const people = [
+    { id: 1, name: 'Wade Cooper' },
+    { id: 2, name: 'Arlene Mccoy' },
+    { id: 3, name: 'Devon Webb' },
+    { id: 4, name: 'Tom Cook' },
+    { id: 5, name: 'Tanya Fox' },
+    { id: 6, name: 'Hellen Schmidt' },
+    { id: 7, name: 'Caroline Schultz' },
+    { id: 8, name: 'Mason Heaney' },
+    { id: 9, name: 'Claudie Smitham' },
+    { id: 10, name: 'Emil Schaefer' },
+  ]
   return (
-    <section className="container grid items-center gap-6 pt-6 pb-8 md:py-10">
-      <div className="flex max-w-[980px] flex-col items-start gap-2">
-        <h1 className="text-3xl font-extrabold leading-tight tracking-tighter sm:text-3xl md:text-5xl lg:text-6xl">
-          Beautifully designed components <br className="hidden sm:inline" />
-          built with Radix UI and Tailwind CSS. HELLO
-        </h1>
-        <p className="max-w-[700px] text-lg text-muted-foreground sm:text-xl">
-          Accessible and customizable components that you can copy and paste
-          into your apps. Free. Open Source. And Next.js 13 Ready.
-        </p>
-      </div>
-      <div className="flex gap-4">
-        <Link
-          href={siteConfig.links.docs}
-          target="_blank"
-          rel="noreferrer"
-          className={buttonVariants({ size: "lg" })}
+    <Dialog>
+      <DialogTrigger> 
+        <Button>Open Dialog</Button>
+      </DialogTrigger>
+      <DialogContent>
+        <div
+          data-testid="header"
+          className="flex items-center justify-start h-full gap-2 border-b border-gray-300"
         >
-          Documentation
-        </Link>
-        <Link
-          target="_blank"
-          rel="noreferrer"
-          href={siteConfig.links.github}
-          className={buttonVariants({ variant: "outline", size: "lg" })}
-        >
-          GitHub
-        </Link>
-      </div>
-    </section>
+          <h1 className="text-xl font-bold ">
+            Relate Records
+          </h1>
+        </div>
+        <Multiselect items={people}/>
+        <Multiselect items={people} />
+        <Multiselect items={people} />
+        <Multiselect items={people} />
+      </DialogContent>
+    </Dialog>
+
   )
 }
