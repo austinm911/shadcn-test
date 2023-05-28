@@ -91,7 +91,7 @@ function Multiselect({ items }: MultiSelectProps) {
                 </span>
 
                 <div className="absolute w-full mt-1 bg-white rounded-md shadow-lg">
-                    <Combobox.Options className="py-1 overflow-auto text-base leading-6 rounded-md shadow-xs max-h-60 focus:outline-none sm:text-sm sm:leading-5">
+                    <Combobox.Options className=" z-[100] py-1 overflow-auto text-base leading-6 rounded-md shadow-xs max-h-60 focus:outline-none sm:text-sm sm:leading-5">
                         {items
                             .filter((item) => item.name.toLowerCase().includes(query.toLowerCase()))
                             .map((item) => (
